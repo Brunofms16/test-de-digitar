@@ -8,6 +8,7 @@
 // const texts = [
 //   "A cidade movimentada nunca dorme, sempre ativa",
 //   "O vento frio soprou forte na noite escura",
+
 //   "O conhecimento só é valioso quando é aplicado. Ele é inútil se não for",
 //   "O que eu quero é um universo equilibrado",
 //   "Eu só queria voltar a ser o Saiyajin cruel e arrogante, a quem nada importava, e queria ter uma luta perfeita",
@@ -87,6 +88,7 @@ const texts = {
     "Eu sou o Super Saiyajin Son Goku!",
     "A vingança é um prato que se come frio!" ,
     "Sou a justiça!",
+    "Eu sou o grande Babidi, o mestre da magia",
     "Eu sou um Namekuseijin pacifista!",
     "Ninguém me supera em poder"
     
@@ -94,6 +96,7 @@ const texts = {
   medium: [
     "O mundo só está certo quando se faz o que se acredita ser justo." ,
     "Isso mesmo eu sou Kira",
+    "Eu sou o grande Babidi, o mestre da magia",
     "Eu escolho criar um mundo melhor.",
     "Sinto que este poder não tem fim!" ,
    
@@ -101,6 +104,7 @@ const texts = {
   hard: [
     "Você é mais fraco do que eu pensava, vamos fazer isso mais interessante!",
     "O universo inteiro é meu inimigo!" ,
+    "Eu sou o grande Babidi, o mestre da magia",
     "Eu só queria voltar a ser o Saiyajin cruel e arrogante, a quem nada importava, e queria ter uma luta perfeita",
     "Venha lutar comigo, pois quero testar minha força contra a sua!",
     "O guerreiro mais forte do universo não é aquele que nunca perde, mas sim aquele que sempre se levanta." ,
