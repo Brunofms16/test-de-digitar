@@ -85,29 +85,40 @@ const difficultySelect = document.getElementById("difficulty");
 
 const texts = {
   easy: [
-    "Eu sou o Super Saiyajin Son Goku!",
-    "A vingança é um prato que se come frio!" ,
+    "O cachorro correu pelo parque",
+    "Não me subestime!",
     "Sou a justiça!",
+    "Mais de 8 mil!",
     "Eu sou o grande Babidi, o mestre da magia",
-    "Eu sou um Namekuseijin pacifista!",
-    "Ninguém me supera em poder"
+    "Eu gosto de chocolate",
+    "Ninguem me supera em poder",
+    "Eu vou me tornar o Rei dos Piratas!",
     
   ],
   medium: [
+    "Eu sou o Super Saiyajin Son Goku!",
     "O mundo só está certo quando se faz o que se acredita ser justo." ,
     "Isso mesmo eu sou Kira",
+    "A Red Bull Racing tem o melhor carro neste ano"
     "Eu sou o grande Babidi, o mestre da magia",
     "Eu escolho criar um mundo melhor.",
     "Sinto que este poder não tem fim!" ,
+    "Eu luto para proteger o que eu amo.",
+    "Nós somos todos amaldiçoados... ou não?",
    
   ],
   hard: [
     "Você é mais fraco do que eu pensava, vamos fazer isso mais interessante!",
+    "A vida é um jogo divertido, então eu vou jogá-la ao máximo",
     "O universo inteiro é meu inimigo!" ,
+    "O Grande Prêmio de Mônaco é uma das corridas mais famosas do mundo",
+    "A vingança é um prato que se come frio!" ,
     "Eu sou o grande Babidi, o mestre da magia",
     "Eu só queria voltar a ser o Saiyajin cruel e arrogante, a quem nada importava, e queria ter uma luta perfeita",
     "Venha lutar comigo, pois quero testar minha força contra a sua!",
     "O guerreiro mais forte do universo não é aquele que nunca perde, mas sim aquele que sempre se levanta." ,
+    "A Ferrari é a equipe mais antiga e mais bem sucedida da Fórmula 1",
+    "Eu vou ressuscitar Majin Boo, e então tudo que há neste mundo será meu!",
     ,
   ],
 };
