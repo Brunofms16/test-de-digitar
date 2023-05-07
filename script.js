@@ -8,7 +8,6 @@
 // const texts = [
 //   "A cidade movimentada nunca dorme, sempre ativa",
 //   "O vento frio soprou forte na noite escura",
-
 //   "O conhecimento só é valioso quando é aplicado. Ele é inútil se não for",
 //   "O que eu quero é um universo equilibrado",
 //   "Eu só queria voltar a ser o Saiyajin cruel e arrogante, a quem nada importava, e queria ter uma luta perfeita",
@@ -82,6 +81,7 @@ const resultElem = document.getElementById("result");
 const historyElem = document.getElementById("history");
 const alternateThemeBtn = document.getElementById("alternate-theme");
 const difficultySelect = document.getElementById("difficulty");
+const scoreEl = document.getElementById("score");
 
 const texts = {
   easy: [
@@ -92,18 +92,18 @@ const texts = {
     "Eu sou o grande Babidi, o mestre da magia",
     "Eu gosto de chocolate",
     "Ninguem me supera em poder",
-    "Eu vou me tornar o Rei dos Piratas!",
+    "Eu vou me tornar o Rei dos Piratas",
     
   ],
   medium: [
     "Eu sou o Super Saiyajin Son Goku!",
-    "O mundo só está certo quando se faz o que se acredita ser justo." ,
+    "O mundo só está certo quando se faz o que se acredita ser justo" ,
     "Isso mesmo eu sou Kira",
-    "A Red Bull Racing tem o melhor carro neste ano"
+    "A Red Bull Racing tem o melhor carro neste ano",
     "Eu sou o grande Babidi, o mestre da magia",
     "Eu escolho criar um mundo melhor.",
     "Sinto que este poder não tem fim!" ,
-    "Eu luto para proteger o que eu amo.",
+    "Eu luto para proteger o que eu amo",
     "Nós somos todos amaldiçoados... ou não?",
    
   ],
@@ -119,13 +119,19 @@ const texts = {
     "O guerreiro mais forte do universo não é aquele que nunca perde, mas sim aquele que sempre se levanta." ,
     "A Ferrari é a equipe mais antiga e mais bem sucedida da Fórmula 1",
     "Eu vou ressuscitar Majin Boo, e então tudo que há neste mundo será meu!",
-    ,
+    
   ],
+};
+const points = {
+  easy: 1,
+  medium: 2,
+  hard: 3,
 };
 
 let startTime = null; // tempo de início do teste
 let currentText = null; // texto atual
 let currentDifficulty = null; // dificuldade atual
+let totalPoints = 0; // total de pontos
 
 function getRandomText(difficulty) {
   const textArray = texts[difficulty];
@@ -143,17 +149,26 @@ function resetTest() {
   startTime = new Date().getTime(); // atualiza o tempo de início
 }
 
-function addHistory(text, timeUsed, difficulty) {
+function addHistory(text, timeUsed, difficulty, points) {
   const item = document.createElement("li");
-  item.textContent = `"${text}" - Tempo: ${timeUsed} segundos - Dificuldade: ${difficulty}`;
+  item.textContent = `"${text}" - Tempo: ${timeUsed} segundos - Dificuldade: ${difficulty} - Pontos: ${points}`;
   historyElem.appendChild(item);
 }
+
+function calculatePoints(difficulty, timeUsed) {
+  return points[difficulty] * (1 / timeUsed) * 60; // calcula os pontos
+}
+
 function verifyInput() {
   if (enterElem.value === currentText) {
     const endTime = new Date().getTime();
     const timeUsed = (endTime - startTime) / 1000;
-    resultElem.textContent = `Parabéns, você levou ${timeUsed.toFixed(2)} segundos.`;
-    addHistory(enterElem.value, timeUsed.toFixed(2), currentDifficulty);
+    const earnedPoints = calculatePoints(currentDifficulty, timeUsed);
+    totalPoints += earnedPoints;
+    resultElem.textContent = `Parabéns, você levou ${timeUsed.toFixed(2)} segundos e ganhou ${earnedPoints.toFixed(2)} pontos.${totalPoints}`;
+    addHistory(enterElem.value, timeUsed.toFixed(2), currentDifficulty, earnedPoints.toFixed(2));
+    console.log(totalPoints)
+    scoreEl.textContent = totalPoints.toFixed(2)
     resetTest();
   }
 }
@@ -163,11 +178,17 @@ function toggleTheme() {
   document.body.classList.toggle("dark");
 }
 
+
+
+  
+
+
+
 // inicializa o teste
 resetTest();
 
 enterElem.addEventListener("input", verifyInput);
 restartElem.addEventListener("click", resetTest);
-alternateThemeBtn.addEventListener("click", toggleTheme);
+// alternateThemeBtn.addEventListener("click", toggleTheme);
 difficultySelect.addEventListener("change", resetTest);
 
